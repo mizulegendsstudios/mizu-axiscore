@@ -16,45 +16,22 @@
         }
     </style>
 </head>
-<!-- 
-    El cuerpo principal de la aplicación.
-    - min-h-screen: Asegura que el cuerpo ocupe al menos el 100% de la altura del viewport.
-    - bg-gray-100: Establece un color de fondo gris claro.
-    - flex, items-center, justify-center: Usa Flexbox para centrar todo el contenido de forma horizontal y vertical.
-    - p-4: Añade un poco de padding para que el contenido no toque los bordes en dispositivos pequeños.
--->
 <body class="min-h-screen bg-gray-100 flex items-center justify-center p-4 relative">
 
-    <!-- 
-        Contenedor para mostrar la posición del mouse y el tamaño del viewport.
-        - absolute: Posicionamiento absoluto para colocarlo en la esquina.
-        - top-4, right-4: Posiciona a 1rem (16px) de la parte superior y derecha.
-        - bg-gray-800: Fondo oscuro para contraste.
-        - text-white: Texto blanco.
-        - p-2, rounded-md: Padding y bordes redondeados.
-        - text-sm: Tamaño de fuente pequeño.
-    -->
+    <!-- Monitor de información en la esquina superior derecha -->
     <div id="monitor-info" class="absolute top-4 right-4 bg-gray-800 text-white p-2 rounded-md text-sm whitespace-nowrap z-50">
         <div id="mouse-position">Mouse: X: 0, Y: 0</div>
         <div id="viewport-size">Viewport: W: 0, H: 0</div>
     </div>
 
-    <!-- Div verde que cubre todo el body con z-index 0 -->
+    <!-- Divs superpuestos con Z-index -->
     <div class="absolute inset-0 bg-green-500 bg-opacity-50 z-0"></div>
+    <div class="absolute w-full h-20 top-0 bg-red-500 bg-opacity-50 z-[160] rounded-lg"></div>
+    <div class="absolute w-20 h-full left-0 bg-blue-500 bg-opacity-50 z-[320] rounded-lg"></div>
+    <div class="absolute top-20 left-20 w-full h-full bg-yellow-500 bg-opacity-50 z-[640] rounded-lg"></div>
+    <div class="absolute top-20 left-20 w-full h-full bg-black-500 bg-opacity-50 z-[641] rounded-lg"></div>
 
-    <!-- Div rojo con ancho del 100% y z-index 160 -->
-    <div class="absolute inset-0 w-full h-1/2 bg-red-500 bg-opacity-50 z-[160] rounded-lg"></div>
-
-    <!-- Div azul con altura del 100% y z-index 320 -->
-    <div class="absolute inset-0 w-1/2 h-full bg-blue-500 bg-opacity-50 z-[320] rounded-lg"></div>
-
-    <!-- Div amarillo de tamaño 1:1 de un icono con z-index 640 -->
-    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 bg-yellow-500 bg-opacity-50 z-[640] rounded-full"></div>
-
-    <!-- 
-        Nuevo bloque de script que importa el archivo core.js,
-        el cual se encarga de toda la lógica.
-    -->
+    <!-- Carga el archivo JavaScript principal como un módulo -->
     <script type="module" src="src/js/core.js"></script>
 
 </body>
