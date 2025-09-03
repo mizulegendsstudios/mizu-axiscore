@@ -1,4 +1,5 @@
 import { updateMonitor } from './stable/monitor_axis.js';
+import { updateMonitor } from './stable/monitor_bars.js';
 
 /**
  * Función de inicialización para configurar los listeners de eventos.
