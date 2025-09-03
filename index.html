@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Web App con Tailwind</title>
+    <!-- Carga el CDN de Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Usa la fuente 'Inter' para un look moderno -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<!-- 
+    El cuerpo principal de la aplicación.
+    - min-h-screen: Asegura que el cuerpo ocupe al menos el 100% de la altura del viewport.
+    - bg-gray-100: Establece un color de fondo gris claro.
+    - flex, items-center, justify-center: Usa Flexbox para centrar todo el contenido de forma horizontal y vertical.
+    - p-4: Añade un poco de padding para que el contenido no toque los bordes en dispositivos pequeños.
+-->
+<body class="min-h-screen bg-gray-100 flex items-center justify-center p-4 relative">
+
+    <!-- 
+        Contenedor para mostrar la posición del mouse y el tamaño del viewport.
+        - absolute: Posicionamiento absoluto para colocarlo en la esquina.
+        - top-4, right-4: Posiciona a 1rem (16px) de la parte superior y derecha.
+        - bg-gray-800: Fondo oscuro para contraste.
+        - text-white: Texto blanco.
+        - p-2, rounded-md: Padding y bordes redondeados.
+        - text-sm: Tamaño de fuente pequeño.
+    -->
+    <div id="monitor-info" class="absolute top-4 right-4 bg-gray-800 text-white p-2 rounded-md text-sm whitespace-nowrap">
+        <div id="mouse-position">Mouse: X: 0, Y: 0</div>
+        <div id="viewport-size">Viewport: W: 0, H: 0</div>
+    </div>
+
+    <!-- 
+        Contenedor principal para la tarjeta de contenido.
+        - bg-white: Fondo blanco para la tarjeta.
+        - p-8: Padding grande para el contenido interno.
+        - rounded-xl: Bordes muy redondeados.
+        - shadow-lg: Añade una sombra de gran tamaño para un efecto de profundidad.
+        - w-full: Ocupa el 100% del ancho del contenedor padre.
+        - max-w-sm: Limita el ancho máximo a 24 rem (384px) para que se vea bien en pantallas grandes.
+        - text-center: Centra el texto dentro de la tarjeta.
+    -->
+    <div class="bg-white p-8 rounded-xl shadow-lg w-full max-w-sm text-center transform transition duration-500 hover:scale-105">
+        <h1 class="text-3xl font-bold text-blue-600 mb-2">
+            ¡Bienvenido!
+        </h1>
+        <p class="mt-4 text-gray-700">
+            Esta es una web app minimalista creada con Tailwind CSS. Es una excelente base para tu próximo proyecto.
+        </p>
+        <!-- 
+            Botón interactivo.
+            - bg-blue-500: Color de fondo azul.
+            - hover:bg-blue-700: Cambia el color al pasar el cursor.
+            - text-white: Color de texto blanco.
+            - font-bold: Texto en negrita.
+            - py-2 px-4: Padding vertical y horizontal.
+            - rounded-full: Bordes completamente redondos.
+            - mt-6: Margen superior.
+            - inline-block: Se muestra como un bloque en línea.
+        -->
+        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full mt-6 transition duration-300">
+            Explora más
+        </button>
+    </div>
+
+    <!-- 
+        Bloque de script para monitorear la posición del mouse y el tamaño del viewport.
+    -->
+    <script>
+        // Función para actualizar el monitor
+        function updateMonitor(event) {
+            const mousePositionDiv = document.getElementById('mouse-position');
+            const viewportSizeDiv = document.getElementById('viewport-size');
+
+            // Obtenemos las coordenadas del mouse si el evento es de mousemove
+            const mouseX = event ? event.clientX : 0;
+            const mouseY = event ? event.clientY : 0;
+
+            // Obtenemos las dimensiones del viewport
+            const viewportW = window.innerWidth;
+            const viewportH = window.innerHeight;
+
+            // Actualizamos los divs
+            mousePositionDiv.textContent = `Mouse: X: ${mouseX}, Y: ${mouseY}`;
+            viewportSizeDiv.textContent = `Viewport: W: ${viewportW}, H: ${viewportH}`;
+        }
+        
+        // Llamamos a la función al cargar la página para mostrar los valores iniciales
+        window.onload = updateMonitor;
+
+        // Escuchamos los eventos de movimiento del mouse y redimensionamiento de la ventana
+        document.addEventListener('mousemove', updateMonitor);
+        window.addEventListener('resize', updateMonitor);
+    </script>
+
+</body>
+</html>
