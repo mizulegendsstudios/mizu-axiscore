@@ -1,5 +1,5 @@
 import { updateMonitor } from './stable/monitor_axis.js';
-import { updateMonitor } from './dev/monitor_bars.js';
+import { initializeBarHiding } from './dev/monitor_bars.js';
 
 /**
  * Función de inicialización para configurar los listeners de eventos.
