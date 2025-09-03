@@ -26,8 +26,8 @@
 
     <!-- Divs superpuestos con Z-index -->
     <div class="absolute inset-0 bg-green-500 bg-opacity-50 z-0"></div>
-    <div class="absolute w-full h-20 top-0 bg-red-500 bg-opacity-50 z-[160] rounded-lg"></div>
-    <div class="absolute w-20 h-full left-0 bg-blue-500 bg-opacity-50 z-[320] rounded-lg p-2 flex flex-col justify-center">
+    <div id="red-bar" class="absolute w-full h-20 top-0 bg-red-500 bg-opacity-50 z-[160] rounded-lg transition-all duration-500 ease-in-out"></div>
+    <div id="blue-bar" class="absolute w-20 h-full left-0 bg-blue-500 bg-opacity-50 z-[320] rounded-lg p-2 flex flex-col justify-center transition-all duration-500 ease-in-out">
         <!-- Contenedor para los 3 divs centrados verticalmente -->
         <div class="flex flex-col space-y-4">
             <div class="w-16 h-16 bg-white bg-opacity-50 rounded-lg mx-auto"></div>
