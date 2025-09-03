@@ -1,16 +1,12 @@
 import { updateMonitor } from './stable/monitor_axis.js';
-import { initializeBarHiding } from './dev/monitor_bars.js';
+import { initializeBarHiding } from './stable/monitor_bars.js';
 
-/**
- * Función de inicialización para configurar los listeners de eventos.
- */
-function initialize() {
-    // Llamamos a la función para mostrar los valores iniciales al cargar la página
-    updateMonitor();
-
-    // Escuchamos los eventos de movimiento del mouse y redimensionamiento de la ventana
+// Inicializa el monitor de mouse y viewport al cargar la página.
+document.addEventListener('DOMContentLoaded', () => {
+    // Se ejecuta al inicio para mostrar el tamaño inicial del viewport.
+    updateMonitor({ clientX: 0, clientY: 0 });
+    // Configura el listener para actualizar el monitor al mover el mouse.
     document.addEventListener('mousemove', updateMonitor);
-    window.addEventListener('resize', updateMonitor);
     // Inicializa la funcionalidad de ocultar/mostrar las barras.
     initializeBarHiding();
-}
+});
