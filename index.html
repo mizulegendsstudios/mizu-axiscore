@@ -73,34 +73,10 @@
     </div>
 
     <!-- 
-        Bloque de script para monitorear la posición del mouse y el tamaño del viewport.
+        Nuevo bloque de script que importa el archivo core.js,
+        el cual se encarga de toda la lógica.
     -->
-    <script>
-        // Función para actualizar el monitor
-        function updateMonitor(event) {
-            const mousePositionDiv = document.getElementById('mouse-position');
-            const viewportSizeDiv = document.getElementById('viewport-size');
-
-            // Obtenemos las coordenadas del mouse si el evento es de mousemove
-            const mouseX = event ? event.clientX : 0;
-            const mouseY = event ? event.clientY : 0;
-
-            // Obtenemos las dimensiones del viewport
-            const viewportW = window.innerWidth;
-            const viewportH = window.innerHeight;
-
-            // Actualizamos los divs
-            mousePositionDiv.textContent = `Mouse: X: ${mouseX}, Y: ${mouseY}`;
-            viewportSizeDiv.textContent = `Viewport: W: ${viewportW}, H: ${viewportH}`;
-        }
-        
-        // Llamamos a la función al cargar la página para mostrar los valores iniciales
-        window.onload = updateMonitor;
-
-        // Escuchamos los eventos de movimiento del mouse y redimensionamiento de la ventana
-        document.addEventListener('mousemove', updateMonitor);
-        window.addEventListener('resize', updateMonitor);
-    </script>
+    <script type="module" src="src/js/core.js"></script>
 
 </body>
 </html>
