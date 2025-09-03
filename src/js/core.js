@@ -11,7 +11,6 @@ function initialize() {
     // Escuchamos los eventos de movimiento del mouse y redimensionamiento de la ventana
     document.addEventListener('mousemove', updateMonitor);
     window.addEventListener('resize', updateMonitor);
+    // Inicializa la funcionalidad de ocultar/mostrar las barras.
+    initializeBarHiding();
 }
-
-// Inicializamos la aplicación una vez que el DOM esté completamente cargado.
-document.addEventListener('DOMContentLoaded', initialize);
