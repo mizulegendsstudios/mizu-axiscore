@@ -1,5 +1,5 @@
 import { updateMonitor } from './stable/monitor_axis.js';
-import { initializeBarHiding } from './stable/monitor_bars.js';
+import { initializeBarHiding } from './dev/monitor_bars.js';
 
 // Inicializa el monitor de mouse y viewport al cargar la página.
 document.addEventListener('DOMContentLoaded', () => {
