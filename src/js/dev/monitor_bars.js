@@ -14,7 +14,7 @@ const EDGE_THRESHOLD = 50; // La distancia del borde para activar la visibilidad
 function hideBars() {
     const redBar = document.getElementById('red-bar');
     const blueBar = document.getElementById('blue-bar');
-    const blackDiv = document.getElementById('black-div');
+    const blackBar = document.getElementById('black-bar');
 
     if (redBar) {
         redBar.classList.add('opacity-0', '-translate-y-full');
@@ -22,10 +22,10 @@ function hideBars() {
     if (blueBar) {
         blueBar.classList.add('opacity-0', '-translate-x-full');
     }
-    if (blackDiv) {
+    if (blackBar) {
         // Expande la div negra para cubrir todo el viewport
-        blackDiv.classList.remove('top-20', 'left-20', 'right-0', 'bottom-0');
-        blackDiv.classList.add('inset-0');
+        blackBar.classList.remove('top-20', 'left-20', 'right-0', 'bottom-0');
+        blackBar.classList.add('inset-0');
     }
     isHidden = true;
 }
