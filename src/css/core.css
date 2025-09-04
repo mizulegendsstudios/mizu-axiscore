@@ -143,7 +143,7 @@ position: absolute;
       align-items: center;
 text-align: center;
 background-size: contain;
-background-image: url('https://raw.githubusercontent.com/mizulegendsstudios/mizu-axiscore/refs/heads/main/src/images/png/svgmls.png');
+background-image: url('https://github.com/mizulegendsstudios/mizu-axiscore/blob/main/src/images/svg/svgmls.svg');
       transform: rotateY(  0deg) translateZ(0px);
 z-index: 1026;
  }
