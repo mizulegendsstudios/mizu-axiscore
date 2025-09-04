@@ -2,9 +2,12 @@
  * @fileoverview Archivo principal que orquesta la lógica de la aplicación.
  * @author Gemini
  */
+//STABLE
 import { initializeLoadingScreen } from "./stable/loading.js";
 import { initializeBarHiding } from "./stable/monitor_bars.js";
 import { initializeMonitor } from "./stable/monitor_axis.js";
+//DEV - En desarrollo
+import { initializeZoomAndPan } from "./dev/zoom.js";
 
 /**
  * Versión de la aplicación.
@@ -20,4 +23,5 @@ document.addEventListener('DOMContentLoaded', () => {
     initializeMonitor();
     initializeBarHiding();
     initializeLoadingScreen();
+    initializeZoomAndPan();
 });
