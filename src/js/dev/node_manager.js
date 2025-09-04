@@ -9,6 +9,7 @@ const NODE_CONTAINER_ID = 'black-content-wrapper';
 let isDragging = false;
 let activeNode = null;
 let offset = { x: 0, y: 0 };
+let selectedNode = null;
 
 /**
  * Inicializa la funcionalidad para crear y arrastrar nodos.
@@ -29,18 +30,31 @@ export function initializeNodeManager() {
         console.log('Nuevo nodo creado.');
     });
 
-    // Listeners para arrastrar nodos
+    // Listeners para arrastrar y seleccionar nodos
     nodeContainer.addEventListener('mousedown', (event) => {
-        const dragHandle = event.target.closest('.node-drag-handle');
+        const target = event.target;
+        const nodeCard = target.closest('.node-card');
+        const dragHandle = target.closest('.node-drag-handle');
+
+        if (nodeCard) {
+            if (selectedNode && selectedNode !== nodeCard) {
+                selectedNode.classList.remove('selected');
+            }
+            nodeCard.classList.add('selected');
+            selectedNode = nodeCard;
+        } else if (selectedNode) {
+            selectedNode.classList.remove('selected');
+            selectedNode = null;
+        }
+
         if (dragHandle) {
-            const target = dragHandle.closest('.node-card');
             isDragging = true;
-            activeNode = target;
+            activeNode = dragHandle.closest('.node-card');
             const containerRect = nodeContainer.getBoundingClientRect();
             offset.x = event.clientX - activeNode.offsetLeft - containerRect.left;
             offset.y = event.clientY - activeNode.offsetTop - containerRect.top;
             activeNode.style.cursor = 'grabbing';
-            event.stopPropagation(); // Evita que el evento se propague al contenedor de zoom/pan
+            event.stopPropagation();
         }
     });
 
