@@ -7,11 +7,20 @@
   <link rel="stylesheet" href="./src/css/core.css">
   <script type="module" src="./src/js/core.js"></script>
 <link rel="icon" type="image/x-icon" href="./favicon.ico">
-   <!-- Estilos críticos: anti-FUOC -->
+    <!-- Estilos críticos inline -->
     <style>
-        html { visibility: hidden; }
+        html { 
+            visibility: hidden;
+            opacity: 0;
+            transition: opacity 0.3s ease-in;
+        }
+        body {
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+        }
     </style>
 </head>
+  
 <body id="body-container">
   <div id="mouse-monitor">
     <div id="mouse-position">X: 0, Y: 0</div>
