@@ -1,5 +1,5 @@
 /* --------------------------------------------------
-   RESET Y BASE
+    RESET Y BASE
 -------------------------------------------------- */
 * {
     box-sizing: border-box;
@@ -20,17 +20,17 @@ body {
     justify-content: center;
     padding: 1rem;
     position: relative;
-    overflow: hidden;                   /* evita scroll si algo se sale */
+    overflow: hidden;                  /* evita scroll si algo se sale */
 }
 
 /* --------------------------------------------------
-   MONITOR DE INFORMACIÓN
+    MONITOR DE INFORMACIÓN
 -------------------------------------------------- */
 #monitor-info {
     position: absolute;
     top: 1rem;
     right: 1rem;
-    background-color: #1f2937;          /* gray-800 */
+    background-color: #1f2937;           /* gray-800 */
     color: #ffffff;
     padding: 0.5rem;
     border-radius: 0.375rem;
@@ -40,7 +40,7 @@ body {
 }
 
 /* --------------------------------------------------
-   CAPAS SUPERIOR (VERDE)
+    CAPAS SUPERIOR (VERDE)
 -------------------------------------------------- */
 body::before {
     content: "";
@@ -51,12 +51,12 @@ body::before {
 }
 
 /* --------------------------------------------------
-   BARRA ROJA SUPERIOR
+    BARRA ROJA SUPERIOR
 -------------------------------------------------- */
 #red-bar {
     position: absolute;
     width: 100%;
-    height: 5rem;                       /* h-20 = 5rem */
+    height: 5rem;                        /* h-20 = 5rem */
     top: 0;
     left: 0;
     background-color: rgba(239, 68, 68, 0.5); /* red-500 / 50% */
@@ -66,11 +66,11 @@ body::before {
 }
 
 /* --------------------------------------------------
-   BARRA AZUL IZQUIERDA
+    BARRA AZUL IZQUIERDA
 -------------------------------------------------- */
 #blue-bar {
     position: absolute;
-    width: 5rem;                        /* w-20 = 5rem */
+    width: 5rem;                         /* w-20 = 5rem */
     height: 100%;
     top: 0;
     left: 0;
@@ -81,7 +81,7 @@ body::before {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 1rem;                          /* espacio entre cuadrados */
+    gap: 1rem;                         /* espacio entre cuadrados */
     z-index: 320;
     transition: transform 0.5s ease, opacity 0.5s ease;
 }
@@ -109,7 +109,7 @@ body::before {
 }
 
 /* --------------------------------------------------
-   CUADRADO AMARILLO
+    CUADRADO AMARILLO
 -------------------------------------------------- */
 #yellow-square {
     position: absolute;
@@ -123,7 +123,7 @@ body::before {
 }
 
 /* --------------------------------------------------
-   CAPA NEGRA
+    CAPA NEGRA
 -------------------------------------------------- */
 #black-bar {
     position: absolute;
@@ -138,6 +138,22 @@ body::before {
     gap: 0.5rem;
     z-index: 641;
     transition: top 0.5s ease, left 0.5s ease, right 0.5s ease, bottom 0.5s ease;
+    /* Estilos para el zoom y pan */
+    overflow: hidden;
+    cursor: grab;
+}
+
+/* Nuevo contenedor para el zoom y pan */
+#black-content-wrapper {
+    /* Estado inicial */
+    transform: translate(0, 0) scale(1);
+    /* Transición para el movimiento */
+    transition: transform 0.2s ease-out;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    gap: 1rem;
+    padding: 1rem;
 }
 
 /* Panel blanco */
@@ -146,7 +162,7 @@ body::before {
     height: 100%;
     background-color: rgba(255, 255, 255, 0.5);
     border-radius: 0.5rem;
-z-index: 642;
+    z-index: 642;
 }
 
 /* Panel morado */
@@ -155,5 +171,5 @@ z-index: 642;
     height: 100%;
     background-color: rgba(168, 85, 247, 0.5);
     border-radius: 0.5rem;
-z-index: 643;
+    z-index: 643;
 }
