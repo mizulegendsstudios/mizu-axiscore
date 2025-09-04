@@ -13,7 +13,7 @@ import { initializeNodeManager } from "./stable/node_manager.js"; // Importa el 
  * Versión de la aplicación.
  * @constant {string}
  */
-const VERSION = '4.20.15';
+const VERSION = '4.20.16';
 
 document.addEventListener('DOMContentLoaded', () => {
     // Registra la versión de la aplicación en la consola.
