@@ -3,7 +3,8 @@
  * @module Loading
  */
 export function initializeLoadingScreen() {
-  document.addEventListener('DOMContentLoaded', (event) => {
-    document.body.style.opacity = '1';
-  });
+    const body = document.body;
+    if (body) {
+        body.style.opacity = '1';
+    }
 }
