@@ -13,7 +13,7 @@ import { initializeZoomAndPan } from "./stable/zoom.js";
  * Versión de la aplicación.
  * @constant {string}
  */
-const VERSION = '4.20.21';
+const VERSION = '4.20.22';
 
 document.addEventListener('DOMContentLoaded', () => {
     // Registra la versión de la aplicación en la consola.
@@ -24,5 +24,5 @@ document.addEventListener('DOMContentLoaded', () => {
     initializeBarHiding();
     initializeLoadingScreen();
     initializeZoomAndPan();
-    initializeNodeManager(); // Se inicializa el módulo de gestión de nodos.
+    //initializeNodeManager(); // Se inicializa el módulo de gestión de nodos.
 });
