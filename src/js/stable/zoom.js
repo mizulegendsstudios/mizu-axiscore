@@ -18,8 +18,9 @@ let scale = 1;
  */
 export function initializeZoomAndPan() {
     const container = document.getElementById('black-bar');
+    const zoomableContent = document.getElementById('black-content-wrapper');
 
-    if (!container) {
+    if (!container || !zoomableContent) {
         console.error('El contenedor para zoom y pan no fue encontrado.');
         return;
     }
@@ -43,7 +44,7 @@ export function initializeZoomAndPan() {
         if (!isPanning) return;
         currentX = event.clientX - startX;
         currentY = event.clientY - startY;
-        container.style.transform = `translate(${currentX}px, ${currentY}px) scale(${scale})`;
+        zoomableContent.style.transform = `translate(${currentX}px, ${currentY}px) scale(${scale})`;
     });
 
     // Listener para la rueda del mouse (zoom)
@@ -55,7 +56,7 @@ export function initializeZoomAndPan() {
         // Limita el zoom para evitar que se pierda el contenido
         if (newScale >= 0.2 && newScale <= 3) {
             scale = newScale;
-            container.style.transform = `translate(${currentX}px, ${currentY}px) scale(${scale})`;
+            zoomableContent.style.transform = `translate(${currentX}px, ${currentY}px) scale(${scale})`;
         }
     });
 
