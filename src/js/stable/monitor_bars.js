@@ -3,12 +3,6 @@
  * @author Gemini
  */
 
-/**
- * Version de la aplicación.
- * @constant {string}
- */
-const VERSION = '1.0.0';
-
 let hideTimer;
 let isHidden = false;
 const HIDE_DELAY = 5000; // 5 segundos
