@@ -26,21 +26,19 @@ export function initializeNodeManager() {
     createNodeBtn.addEventListener('click', () => {
         const newNode = createNode();
         nodeContainer.appendChild(newNode);
-        // Log de confirmación en el DOM
-        const log = document.createElement('p');
-        log.textContent = 'Nuevo nodo creado.';
-        nodeContainer.appendChild(log);
         console.log('Nuevo nodo creado.');
     });
 
     // Listeners para arrastrar nodos
     nodeContainer.addEventListener('mousedown', (event) => {
-        const target = event.target.closest('.node-card');
-        if (target) {
+        const dragHandle = event.target.closest('.node-drag-handle');
+        if (dragHandle) {
+            const target = dragHandle.closest('.node-card');
             isDragging = true;
             activeNode = target;
-            offset.x = event.clientX - activeNode.offsetLeft;
-            offset.y = event.clientY - activeNode.offsetTop;
+            const containerRect = nodeContainer.getBoundingClientRect();
+            offset.x = event.clientX - activeNode.offsetLeft - containerRect.left;
+            offset.y = event.clientY - activeNode.offsetTop - containerRect.top;
             activeNode.style.cursor = 'grabbing';
             event.stopPropagation(); // Evita que el evento se propague al contenedor de zoom/pan
         }
@@ -48,8 +46,9 @@ export function initializeNodeManager() {
 
     nodeContainer.addEventListener('mousemove', (event) => {
         if (!isDragging || !activeNode) return;
-        activeNode.style.left = `${event.clientX - offset.x}px`;
-        activeNode.style.top = `${event.clientY - offset.y}px`;
+        const containerRect = nodeContainer.getBoundingClientRect();
+        activeNode.style.left = `${event.clientX - containerRect.left - offset.x}px`;
+        activeNode.style.top = `${event.clientY - containerRect.top - offset.y}px`;
     });
 
     nodeContainer.addEventListener('mouseup', () => {
@@ -71,6 +70,10 @@ function createNode() {
     const newNode = document.createElement('div');
     newNode.className = 'node-card absolute p-4 rounded-lg shadow-lg';
     newNode.innerHTML = `
+        <div class="node-controls">
+            <i class="fas fa-arrows-alt node-drag-handle"></i>
+            <i class="fas fa-cog"></i>
+        </div>
         <h3 class="font-bold text-base">Nodo</h3>
         <p class="text-xs mt-1">Arrastra para mover.</p>
     `;
