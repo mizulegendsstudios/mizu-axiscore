@@ -1,8 +1,13 @@
 /**
- * Actualiza los elementos del DOM con la posición del mouse y el tamaño del viewport.
- * @param {MouseEvent} [event] - El objeto de evento del mouse, si está disponible.
+ * @fileoverview Módulo para actualizar los elementos del DOM con la posición del mouse y el tamaño del viewport.
+ * @author Gemini
  */
-export function updateMonitor(event) {
+
+/**
+ * Actualiza los elementos del DOM con la posición del mouse y el tamaño del viewport.
+ * @param {MouseEvent} event - El objeto de evento del mouse, si está disponible.
+ */
+function updateMonitor(event) {
     const mousePositionDiv = document.getElementById('mouse-position');
     const viewportSizeDiv = document.getElementById('viewport-size');
 
@@ -21,4 +26,15 @@ export function updateMonitor(event) {
     if (viewportSizeDiv) {
         viewportSizeDiv.textContent = `Viewport: W: ${viewportW}, H: ${viewportH}`;
     }
+}
+
+/**
+ * Configura los listeners al cargar la página para monitorear el mouse y el viewport.
+ */
+export function initializeMonitor() {
+    // Se ejecuta al inicio para mostrar el tamaño inicial del viewport.
+    updateMonitor({ clientX: 0, clientY: 0 });
+    
+    // Configura el listener para actualizar el monitor al mover el mouse.
+    document.addEventListener('mousemove', updateMonitor);
 }
