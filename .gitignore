@@ -1,24 +1,18 @@
-# Logs
-logs
-*.log
+# Archivos y carpetas de dependencia
+/node_modules
+
+# Archivos de depuración y de sistema
 npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-pnpm-debug.log*
-lerna-debug.log*
-
-node_modules
-dist
-dist-ssr
-*.local
-
-# Editor directories and files
-.vscode/*
-!.vscode/extensions.json
-.idea
 .DS_Store
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw?
+dist/
+
+
+### Explicación del archivo
+
+* **`/node_modules`**: Esta línea le dice a Git que ignore toda la carpeta `node_modules`. Es crucial porque esta carpeta puede tener miles de archivos y no tiene sentido subirla a un repositorio. Cada desarrollador la genera por su cuenta con un solo comando (`npm install`).
+
+* **`npm-debug.log*`**: Cuando `npm` tiene un error, crea un archivo de registro para ayudar a depurarlo. No necesitas subir esto al repositorio.
+
+* **`.DS_Store`**: Este es un archivo oculto que las computadoras Mac crean automáticamente en las carpetas. No tiene nada que ver con tu código, así que es mejor ignorarlo.
+
+* **`dist/`**: Esta es la carpeta que Tailwind crea cuando "compila" tus archivos. Como se genera automáticamente, no necesitas subirla.
