@@ -1,0 +1,116 @@
+/* Estilos generales para el body y la fuente */
+body {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  margin: 0;
+  background-color: #f3f4f6;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  line-height: 1.5;
+}
+
+/* Estilos de las div para el monitor de mouse */
+#mouse-monitor {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  transform: none;
+  background-color: rgba(255, 255, 255, 0.7);
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-family: monospace;
+  z-index: 1000;
+}
+
+/* Estilos de las divs de colores */
+.div {
+  position: absolute;
+  transition: all 0.5s ease-in-out;
+}
+
+#green-div {
+  inset: 0;
+  background-color: rgba(16, 185, 129, 0.5);
+  z-index: 0;
+}
+
+#red-bar {
+  width: 100%;
+  height: 80px;
+  top: 0;
+  background-color: rgba(239, 68, 68, 0.5);
+  z-index: 160;
+  border-radius: 8px;
+}
+
+#blue-bar {
+  width: 80px;
+  height: 100%;
+  left: 0;
+  background-color: rgba(59, 130, 246, 0.5);
+  z-index: 320;
+  border-radius: 8px;
+}
+
+#yellow-div {
+  width: 64px;
+  height: 64px;
+  background-color: rgba(251, 191, 36, 0.5);
+  z-index: 640;
+  border-radius: 8px;
+  top: 0;
+  left: 0;
+}
+
+#black-div {
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 641;
+  top: 80px;
+  left: 80px;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  transition: all 0.5s ease-in-out;
+}
+
+#white-div {
+  width: 50%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 1);
+}
+
+#purple-div {
+  width: 50%;
+  height: 100%;
+  background-color: rgba(128, 0, 128, 1);
+}
+
+.center-vertically {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.div-in-blue {
+  width: 64px;
+  height: 64px;
+  background-color: rgba(251, 191, 36, 0.5);
+  z-index: 640;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.div-in-blue-footer {
+  width: 64px;
+  height: 64px;
+  background-color: rgba(251, 191, 36, 0.5);
+  z-index: 640;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: auto;
+  margin-bottom: 12px;
+}
