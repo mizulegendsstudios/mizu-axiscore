@@ -118,6 +118,8 @@ body::before {
     width: 5rem;
     height: 5rem;
     background-color: rgba(245, 158, 11, 0.5); /* yellow-500 / 50% */
+background-size: contain;
+background-image: url('https://raw.githubusercontent.com/mizulegendsstudios/mizu-axiscore/refs/heads/main/src/images/png/svgmls.png');
     border-radius: 0.5rem;
     z-index: 1024;
 perspective: 100vh;
