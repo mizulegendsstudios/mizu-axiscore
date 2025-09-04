@@ -86,10 +86,11 @@ function startHideTimer() {
  * Configura los listeners al cargar la página.
  */
 export function initializeBarHiding() {
-    console.log(`Versión de la aplicación: ${VERSION}`);
     startHideTimer();
 
     document.getElementById('body-container').addEventListener('mousemove', (event) => {
+        clearTimeout(hideTimer);
+
         // Si están ocultas y el ratón está cerca de los bordes, mostrar.
         if (isHidden) {
             if (event.clientX < EDGE_THRESHOLD || event.clientY < EDGE_THRESHOLD) {
