@@ -1,6 +1,6 @@
 /**
  * @fileoverview Módulo para gestionar la creación, selección y arrastre de nodos.
- * @author Gemini
+ * @author Gemini.
  */
 
 /** @constant {string} ID del contenedor donde se crean los nodos. */
