@@ -1,4 +1,4 @@
-/**.
+/**
  * @fileoverview Módulo para gestionar la creación, selección y arrastre de nodos.
  * @author Gemini
  */
