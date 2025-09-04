@@ -1,52 +1,29 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Web App con Tailwind</title>
-    <!-- Carga el CDN de Tailwind CSS -->
-    <link href="/src/style.css" rel="stylesheet">
-    <!-- Usa la fuente 'Inter' para un look moderno -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mi Web App Limpia</title>
+  <link rel="stylesheet" href="./src/styles.css">
+  <script type="module" src="./src/js/core.js"></script>
 </head>
-<body id="body-container" class="min-h-screen bg-gray-100 flex items-center justify-center p-4 relative">
-
-    <!-- Monitor de información en la esquina superior derecha -->
-    <div id="monitor-info" class="absolute top-4 right-4 bg-gray-800 text-white p-2 rounded-md text-sm whitespace-nowrap z-50">
-        <div id="mouse-position">Mouse: X: 0, Y: 0</div>
-        <div id="viewport-size">Viewport: W: 0, H: 0</div>
-    </div>
-
-    <!-- Divs superpuestos con Z-index -->
-    <div class="absolute inset-0 bg-green-500 bg-opacity-50 z-0"></div>
-    <div id="red-bar" class="absolute w-full h-20 top-0 bg-red-500 bg-opacity-50 z-[160] rounded-lg transition-all duration-500 ease-in-out"></div>
-    <div id="blue-bar" class="absolute w-20 h-full left-0 bg-blue-500 bg-opacity-50 z-[320] rounded-lg p-2 flex flex-col justify-center transition-all duration-500 ease-in-out">
-        <!-- Contenedor para los 3 divs centrados verticalmente -->
-        <div class="flex flex-col space-y-4">
-            <div class="w-16 h-16 bg-white bg-opacity-50 rounded-lg mx-auto"></div>
-            <div class="w-16 h-16 bg-gray-400 bg-opacity-50 rounded-lg mx-auto"></div>
-            <div class="w-16 h-16 bg-gray-800 bg-opacity-50 rounded-lg mx-auto"></div>
-        </div>
-        <!-- Div de "pie" no centrado -->
-        <div class="absolute bottom-4 mx-auto w-16 h-16 bg-purple-500 bg-opacity-50 rounded-lg"></div>
-    </div>
-    <div class="absolute top-0 left-0 w-20 h-20 bg-yellow-500 bg-opacity-50 z-[640] rounded-lg"></div>
-    <div id="black-bar" class="absolute top-20 left-20 right-0 bottom-0 bg-black bg-opacity-50 z-[641] rounded-lg p-4 flex">
-
-        <!-- Dos nuevos divs dentro del div negro -->
-        <div class="w-1/2 h-full bg-white bg-opacity-50 rounded-lg mr-2"></div>
-        <div class="w-1/2 h-full bg-purple-500 bg-opacity-50 rounded-lg ml-2"></div>
-    </div>
-
-    <!-- Carga el archivo JavaScript principal como un módulo -->
-    <script type="module" src="src/js/core.js"></script>
-
+<body id="body-container">
+  <div id="mouse-monitor">
+    <div id="mouse-position">X: 0, Y: 0</div>
+    <div id="viewport-size">Ancho: 0, Alto: 0</div>
+  </div>
+  <div id="green-div" class="div"></div>
+  <div id="red-bar" class="div"></div>
+  <div id="blue-bar" class="div center-vertically">
+    <div class="div-in-blue">1</div>
+    <div class="div-in-blue">2</div>
+    <div class="div-in-blue">3</div>
+    <div class="div-in-blue-footer">4</div>
+  </div>
+  <div id="yellow-div" class="div"></div>
+  <div id="black-div" class="div">
+    <div id="white-div"></div>
+    <div id="purple-div"></div>
+  </div>
 </body>
 </html>
