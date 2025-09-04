@@ -7,13 +7,13 @@ import { initializeLoadingScreen } from "./stable/loading.js";
 import { initializeBarHiding } from "./stable/monitor_bars.js";
 import { initializeMonitor } from "./stable/monitor_axis.js";
 import { initializeZoomAndPan } from "./stable/zoom.js";
-import { initializeNodeManager } from "./stable/node_manager.js"; // Importa el nuevo módulo
+import { initializeNodeManager } from "./dev/node_manager.js"; // Importa el nuevo módulo
 
 /**
  * Versión de la aplicación.
  * @constant {string}
  */
-const VERSION = '4.20.16';
+const VERSION = '4.20.17';
 
 document.addEventListener('DOMContentLoaded', () => {
     // Registra la versión de la aplicación en la consola.
