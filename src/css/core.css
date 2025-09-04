@@ -117,7 +117,7 @@ body::before {
     left: 0;
     width: 5rem;
     height: 5rem;
-    background-color: rgba(0, 0, 0, 1); 
+    background-color: rgba(0, 0, 0, 0.1); 
     border-radius: 0.5rem;
     z-index: 1024;
     perspective: 100vh;
@@ -134,19 +134,17 @@ body::before {
 z-index: 1025;
     }
 #hologram  {
-      background-size: contain;
-      background-image: url('https://raw.githubusercontent.com/mizulegendsstudios/mizu-axiscore/refs/heads/main/src/images/png/svgmls.png');      
-      position: absolute;
-      width: 100%;
+position: absolute;
+   width: 100%;
       height: 100%;
       background: rgba(0, 0, 0, 0);
-      box-sizing: border-box;
-      border-radius: 20px;
       display: flex;
       justify-content: center;
       align-items: center;
-      text-align: center;
-      color: #fff; transform: rotateY(  0deg) translateZ(0px);
+text-align: center;
+background-size: contain;
+background-image: url('https://raw.githubusercontent.com/mizulegendsstudios/mizu-axiscore/refs/heads/main/src/images/png/svgmls.png');
+      transform: rotateY(  0deg) translateZ(0px);
 z-index: 1026;
  }
 
