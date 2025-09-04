@@ -13,7 +13,7 @@ import { initializeZoomAndPan } from "./dev/zoom.js";
  * Versión de la aplicación.
  * @constant {string}
  */
-const VERSION = '4.20.10';
+const VERSION = '4.20.11';
 
 document.addEventListener('DOMContentLoaded', () => {
     // Registra la versión de la aplicación en la consola.
