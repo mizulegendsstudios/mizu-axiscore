@@ -6,8 +6,9 @@
 import { initializeLoadingScreen } from "./stable/loading.js";
 import { initializeBarHiding } from "./stable/monitor_bars.js";
 import { initializeMonitor } from "./stable/monitor_axis.js";
+import { initializeZoomAndPan } from "./stable/zoom.js";
 //DEV - En desarrollo
-import { initializeZoomAndPan } from "./dev/zoom.js";
+
 
 /**
  * Versión de la aplicación.
