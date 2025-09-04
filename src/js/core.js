@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () =>
  * Versión de la aplicación.
  * @constant {string}
  */
-const VERSION = '4.2.0';
+const VERSION = '4.20.1';
 
 document.addEventListener('DOMContentLoaded', () => 
     {
