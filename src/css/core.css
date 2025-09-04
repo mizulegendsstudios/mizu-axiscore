@@ -10,12 +10,11 @@ body {
   line-height: 1.5;
 }
 
-/* Estilos de las div para el monitor de mouse */
+/* Estilos de la div para el monitor de mouse */
 #mouse-monitor {
   position: absolute;
   top: 10px;
   right: 10px;
-  transform: none;
   background-color: rgba(255, 255, 255, 0.7);
   padding: 5px 10px;
   border-radius: 5px;
@@ -51,6 +50,10 @@ body {
   background-color: rgba(59, 130, 246, 0.5);
   z-index: 320;
   border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 #yellow-div {
@@ -86,12 +89,7 @@ body {
   background-color: rgba(128, 0, 128, 1);
 }
 
-.center-vertically {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
+/* Estilos para las divs dentro de la barra azul */
 .div-in-blue {
   width: 64px;
   height: 64px;
@@ -102,6 +100,7 @@ body {
   align-items: center;
   justify-content: center;
 }
+
 .div-in-blue-footer {
   width: 64px;
   height: 64px;
@@ -113,4 +112,18 @@ body {
   justify-content: center;
   margin-top: auto;
   margin-bottom: 12px;
+}
+
+/* Clases para ocultar y mostrar barras con JavaScript */
+.red-bar-hidden {
+  transform: translateY(-100%);
+  opacity: 0;
+}
+.blue-bar-hidden {
+  transform: translateX(-100%);
+  opacity: 0;
+}
+.black-div-expanded {
+  top: 0;
+  left: 0;
 }
