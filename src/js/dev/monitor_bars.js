@@ -5,79 +5,100 @@
 
 let hideTimer;
 let isHidden = false;
-const HIDE_DELAY = 5000; // 5 segundos
-const EDGE_THRESHOLD = 50; // La distancia del borde para activar la visibilidad.
+const HIDE_DELAY = 5000;   // 5 segundos
+const EDGE_THRESHOLD = 50; // píxeles
+
+/* --------------------------------------------------
+   FUNCIONES AUXILIARES
+-------------------------------------------------- */
 
 /**
- * Oculta las barras roja y azul, y expande la div negra.
+ * Oculta las barras roja y azul y expande la capa negra.
  */
 function hideBars() {
     const redBar = document.getElementById('red-bar');
     const blueBar = document.getElementById('blue-bar');
     const blackBar = document.getElementById('black-bar');
 
+    // Barras: deslizamiento + fade
     if (redBar) {
-        redBar.classList.add('opacity-0', '-translate-y-full');
+        redBar.style.transform = 'translateY(-100%)';
+        redBar.style.opacity = '0';
     }
     if (blueBar) {
-        blueBar.classList.add('opacity-0', '-translate-x-full');
+        blueBar.style.transform = 'translateX(-100%)';
+        blueBar.style.opacity = '0';
     }
+
+    // Capa negra: expandir a toda la pantalla
     if (blackBar) {
-        // Expande la div negra para cubrir todo el viewport
-        blackBar.classList.remove('top-20', 'left-20', 'right-0', 'bottom-0');
-        blackBar.classList.add('inset-0');
+        blackBar.style.top = '0';
+        blackBar.style.left = '0';
+        blackBar.style.right = '0';
+        blackBar.style.bottom = '0';
     }
+
     isHidden = true;
 }
 
 /**
- * Muestra las barras roja y azul, y contrae la div negra.
+ * Muestra las barras roja y azul y restaura el tamaño original de la capa negra.
  */
 function showBars() {
     const redBar = document.getElementById('red-bar');
     const blueBar = document.getElementById('blue-bar');
     const blackBar = document.getElementById('black-bar');
 
+    // Restaurar transformaciones y opacidad
     if (redBar) {
-        redBar.classList.remove('opacity-0', '-translate-y-full');
+        redBar.style.transform = 'translateY(0)';
+        redBar.style.opacity = '1';
     }
     if (blueBar) {
-        blueBar.classList.remove('opacity-0', '-translate-x-full');
+        blueBar.style.transform = 'translateX(0)';
+        blueBar.style.opacity = '1';
     }
+
+    // Restaurar posición original de la capa negra
     if (blackBar) {
-        // Restaura el tamaño original de la div negra
-        blackBar.classList.remove('inset-0');
-        blackBar.classList.add('top-20', 'left-20', 'right-0', 'bottom-0');
+        blackBar.style.top = '5rem';   /* top-20  */
+        blackBar.style.left = '5rem';  /* left-20 */
+        blackBar.style.right = '0';
+        blackBar.style.bottom = '0';
     }
+
     isHidden = false;
 }
 
 /**
- * Inicia el temporizador para ocultar las barras.
+ * Inicia o reinicia el temporizador de ocultación.
  */
 function startHideTimer() {
     clearTimeout(hideTimer);
     hideTimer = setTimeout(hideBars, HIDE_DELAY);
 }
 
+/* --------------------------------------------------
+   INICIALIZACIÓN
+-------------------------------------------------- */
+
 /**
- * Inicializa la funcionalidad de las barras al cargar la página.
+ * Configura los listeners al cargar la página.
  */
 export function initializeBarHiding() {
     startHideTimer();
 
     document.getElementById('body-container').addEventListener('mousemove', (event) => {
-        // Limpia el temporizador cada vez que el mouse se mueve.
         clearTimeout(hideTimer);
 
-        // Si las barras están ocultas y el mouse está cerca de los bordes, muéstralas.
+        // Si están ocultas y el ratón está cerca de los bordes, mostrar
         if (isHidden) {
             if (event.clientX < EDGE_THRESHOLD || event.clientY < EDGE_THRESHOLD) {
                 showBars();
             }
         }
-        
-        // Reinicia el temporizador para ocultar las barras si el mouse no está cerca de los bordes.
+
+        // Reiniciar el temporizador si el ratón NO está cerca
         if (event.clientX >= EDGE_THRESHOLD && event.clientY >= EDGE_THRESHOLD) {
             startHideTimer();
         }
