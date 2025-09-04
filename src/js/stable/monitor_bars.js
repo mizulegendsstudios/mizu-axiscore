@@ -3,13 +3,19 @@
  * @author Gemini
  */
 
+/**
+ * Version de la aplicación.
+ * @constant {string}
+ */
+const VERSION = '1.0.0';
+
 let hideTimer;
 let isHidden = false;
-const HIDE_DELAY = 5000;   // 5 segundos
+const HIDE_DELAY = 5000; // 5 segundos
 const EDGE_THRESHOLD = 50; // píxeles
 
 /* --------------------------------------------------
-   FUNCIONES AUXILIARES
+    FUNCIONES AUXILIARES
 -------------------------------------------------- */
 
 /**
@@ -61,8 +67,8 @@ function showBars() {
 
     // Restaurar posición original de la capa negra
     if (blackBar) {
-        blackBar.style.top = '5rem';   /* top-20  */
-        blackBar.style.left = '5rem';  /* left-20 */
+        blackBar.style.top = '5rem';
+        blackBar.style.left = '5rem';
         blackBar.style.right = '0';
         blackBar.style.bottom = '0';
     }
@@ -79,27 +85,26 @@ function startHideTimer() {
 }
 
 /* --------------------------------------------------
-   INICIALIZACIÓN
+    INICIALIZACIÓN
 -------------------------------------------------- */
 
 /**
  * Configura los listeners al cargar la página.
  */
 export function initializeBarHiding() {
+    console.log(`Versión de la aplicación: ${VERSION}`);
     startHideTimer();
 
     document.getElementById('body-container').addEventListener('mousemove', (event) => {
-        clearTimeout(hideTimer);
-
-        // Si están ocultas y el ratón está cerca de los bordes, mostrar
+        // Si están ocultas y el ratón está cerca de los bordes, mostrar.
         if (isHidden) {
             if (event.clientX < EDGE_THRESHOLD || event.clientY < EDGE_THRESHOLD) {
                 showBars();
             }
         }
 
-        // Reiniciar el temporizador si el ratón NO está cerca
-        if (event.clientX >= EDGE_THRESHOLD && event.clientY >= EDGE_THRESHOLD) {
+        // Si se muestran y el ratón se aleja, reiniciar el temporizador para ocultarlas.
+        if (!isHidden && (event.clientX >= EDGE_THRESHOLD && event.clientY >= EDGE_THRESHOLD)) {
             startHideTimer();
         }
     });
